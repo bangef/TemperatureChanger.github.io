@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Konverter Suhu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container" style="overflow-x:auto;">
+        <table>
+            <tr>
+                <th class="heading-table" colspan="6">
+                    Konverter Suhu
+                </th>
+            </tr>
+            <tr>
+                <th id="colomKhusus">
+                    <Select id="konvSuhu" onclick="konvertSuhu()">
+                        <option value="" disabled selected>Pilih Suhu</option>
+                        <option value="c">C</option>
+                        <option value="r">R</option>
+                        <option value="f">F</option>
+                        <option value="k">K</option>
+                    </Select></th>
+                <th class="heading-table">Celcius</th>
+                <th class="heading-table">Reamur</th>
+                <th class="heading-table">Fahrenheit</th>
+                <th class="heading-table">Kelvin</th>
+            </tr>
+            <tr>
+                <td class="colomKhusus ">
+                    <input id="inp" type="tel" placeholder="Disini..."/>
+                </td>
+                <td class="colomKhusus">
+                    <input id="c" class="rata-tengah warna" type="tel" readonly/>
+                </td>
+                <td class="colomKhusus">
+                    <input id="r" class="rata-tengah warna" type="tel" readonly/>
+                </td>
+                <td class="colomKhusus">
+                    <input id="f" class="rata-tengah warna" type="tel" readonly/>
+                </td>
+                <td class="colomKhusus ">
+                    <input id="k" class="rata-tengah warna" type="tel" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" class="footer" >
+                    made by bangef
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
