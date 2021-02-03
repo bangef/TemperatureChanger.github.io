@@ -9,7 +9,7 @@ function konvertSuhu() {
     switch (konvSuhu) {
         case 'c':
             ubahWarna(celc, fahr, ream, kelv);
-            parseFloat(celc.value = null);
+            celc.value = null;
             parseFloat(ream.value = inp * (4/5));
             parseFloat(fahr.value = inp * (9/5) + 32);
             parseFloat(kelv.value = inp + 273.15);
@@ -17,7 +17,7 @@ function konvertSuhu() {
         case 'r':
             ubahWarna(ream, fahr, celc, kelv);
             parseFloat(celc.value = inp * 5/4);
-            parseFloat(ream.value = null);
+            ream.value = null;
             parseFloat(fahr.value = inp * (9/4) + 32);
             parseFloat(kelv.value = inp * 5/4 + 273);
             break;
@@ -25,7 +25,7 @@ function konvertSuhu() {
             ubahWarna(fahr, ream, celc, kelv);
             parseFloat(celc.value = (inp - 32) * 5/9);
             parseFloat(ream.value = (inp - 32) * 4/9);
-            parseFloat(fahr.value = null);
+            fahr.value = null;
             parseFloat(kelv.value = (inp - 32) * 5/9 + 273.15);
             break;
         case 'k':
@@ -33,7 +33,7 @@ function konvertSuhu() {
             parseFloat(celc.value = inp - 273.15);
             parseFloat(ream.value = (inp -273) * 4 / 5 );
             parseFloat(fahr.value = (inp - 273.15) * 9/5 + 32);
-            parseFloat(kelv.value = null);
+            kelv.value = null;
             break;
     }   
 }
