@@ -5,11 +5,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Konverter Suhu</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container" style="overflow-x:auto;">
+    <div class="container">
+        <div class="card text-white bg-custom border1px" style="max-width: 30rem;">
+            <div class="card-header text-center">
+                <h3 class="font-weight-bold"><span class="iconify" data-icon="fa-solid:thermometer-half" data-inline="false"></span> Konverter Suhu</h3>
+            </div>
+            <div class="row card-body text-center" style="background-color: balck;">
+
+                <div class="col-md-12 col-sm-12 my-1  width100">
+                    <div class="card bg-custom">
+                        <div class="card-header padding0 border2px">
+                            <input id="inpSuhu"
+                                class="text-dark text-center padding16 font-weight-bold font-size3 width100" type="tel">
+                        </div>
+                        <!-- pilihMenu -->
+                        <div class="card-body padding0 text-center">
+                            <select onchange="konvertSuhu()" id="inpPiliSuhu" class="bg-custom width90 bordernone padding16">
+                                <option value="c">Celcius</option>
+                                <option value="r">Reamur</option>
+                                <option value="f">Fahrenheit</option>
+                                <option value="k">Kelvin</option>
+                            </select>
+                            <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reamur -->
+                <div class="col-md-4 col-sm-4 my-1 avail" id="outR">
+                    <div class="card bg-custom">
+                        <div class="card-header padding0 border2px">
+                            <input readonly id="inpR"
+                                class="text-dark text-center padding16 font-weight-bold font-size3 width100" type="tel">
+                        </div>
+                        <div class="card-body padding0 text-center">
+                            <p>Reamur</p>
+                            <p><strong>Rumus</strong> : <span id="rumR"></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fahrenheit -->
+                <div class="col-md-4 col-sm-4 my-1 avail" id="outF">
+                    <div class="card bg-custom">
+                        <div class="card-header padding0 border2px">
+                            <input readonly id="inpF"
+                                class="text-dark text-center padding16 font-weight-bold font-size3 width100" type="tel">
+                        </div>
+                        <div class="card-body padding0 text-center">
+                            <p>Fahrenheit</p>
+                            <p><strong>Rumus</strong> : <span id="rumF"></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kelvin -->
+                <div class="col-md-4 col-sm-4 my-1 avail" id="outK" >
+                    <div class="card bg-custom">
+                        <div class="card-header padding0 border2px">
+                            <input readonly id="inpK"
+                                class="text-dark text-center padding16 font-weight-bold font-size3 width100" type="tel">
+                        </div>
+                        <div class="card-body padding0 text-center">
+                            <p>Kelvin</p>
+                            <p><strong>Rumus</strong> : <span id="rumK"></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celcius -->
+                <div class="col-md-4 col-sm-4 my-1 hide" id="outC">
+                    <div class="card bg-custom">
+                        <div class="card-header padding0 border2px">
+                            <input readonly id="inpC"
+                                class="text-dark text-center padding16 font-weight-bold font-size3 width100" type="tel">
+                        </div>
+                        <div class="card-body padding0 text-center">
+                            <p>Celcius</p>
+                            <p><strong>Rumus</strong> : <span id="rumC"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="row justify-content-center">
+                <div class="footer">
+                    made by bangef
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="container" style="overflow-x:auto;">
         <table>
             <tr>
                 <th class="heading-table" colspan="6">
@@ -19,7 +125,7 @@
             <tr>
                 <th id="colomKhusus">
                     <Select id="konvSuhu" onclick="konvertSuhu()">
-                        <option value="" disabled selected>Pilih Suhu</option>
+                        <option value="" selected>Pilih Suhu</option>
                         <option value="c">C</option>
                         <option value="r">R</option>
                         <option value="f">F</option>
@@ -53,7 +159,7 @@
                 </td>
             </tr>
         </table>
-    </div>
+    </div> -->
     <script src="script.js"></script>
 </body>
 

@@ -1,73 +1,121 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;700&display=swap");
 * {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 900;
+  font-family: "Ubuntu", sans-serif;
+  color: #ffffff;
 }
-.container{
-  max-width: 750px;
+.text-dark {
+  color: #3C3C3C;
+}
+.padding0 {
+  padding: 0;
+}
+.padding16 {
+  padding: 0.2em;
+}
+
+.font-size3 {
+  font-size: 2em;
+  font-weight: 400;
+}
+.width100 {
   width: 100%;
-  margin: auto;
+}
+.width90 {
+  width: 85%;
 }
 
-table {
-  margin: auto;
-  border-collapse: collapse;
-  border-spacing: 0;
-  border: 1px solid #ddd;
-  margin-top: 10em;
-  margin-bottom: 2em;
+.bordernone {
+  border: none;
+}
+.border1px {
+  border: 1px solid #3C3C3C;
 }
 
-th,
-td {
-  text-align: center;
-  /* padding: 0.5em; */
-  border: 1px solid #ddd;
-  letter-spacing: 2px;
+.bg-custom {
+  background-color: #3C3C3C;
+  border: 3px solid #3C3C3C;
 }
 
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.heading-table {
-    padding: 1em;
-    text-align: center;
+.container {
+  max-width: 500px;
+  margin: 100px auto;
 }
 
 select {
-    margin: 0;
-    background-color: #f2f2f2;
-    border: 1px solid #f2f2f2;
-    /* padding: 1em; */
-    /* border: 1px solid black; */
-    padding-right: 4em;
-}
-
-.colomKhusus {
-    padding: 0;
+  border: none;
+  background: transparent;
+  /*background-color: blue;*/
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-top: 0px;
+  background-size: 20px;
+  color: #ffffff;
+  font-size: 1em;
 }
 
 input {
-    border: none;
-    padding: 1em;
-    width: 7em;
-    font-weight: 100;
+  overflow-x: auto;
 }
 
-.rata-tengah{
-    text-align: center;
+.hide{
+  display: none;
 }
 
-.warna {
-  background-color: #f5f5f5;
+.avail {
+  display: block;
 }
 
-.footer{
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 100;
+.dark {
+  background-color: #3C3C3C;
+}
+
+select option {
+  background-color: #3C3C3C;
+  color: #fff;
+}
+
+.fa-chevron-circle-down {
+  text-align: center;
+  width: 10%;
+  color: #fff;
+  font-size: 1em;
+}
+
+.footer {
+  margin-top: -10px;
+  font-family: "Courier New", Courier, monospace;
   font-size: x-small;
-  padding: 0.5em;
-  background-color: #ffffff;
+  padding: 0.2em;
+  color: #fff;
+  background-color: #3C3C3C;
+}
+
+@media (max-width: 375px) {
+  .container {
+    margin: 50px auto;
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    margin: 135px auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    margin: 135px auto;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    margin: 135px auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    margin: 135px auto;
+  }
 }

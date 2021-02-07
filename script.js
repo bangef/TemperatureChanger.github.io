@@ -1,49 +1,144 @@
+// Main
 function konvertSuhu() {
-    var inp = document.getElementById("inp").value;
-    var konvSuhu = document.getElementById("konvSuhu").value;
-    var celc = document.getElementById("c");
-    var ream = document.getElementById("r");
-    var fahr = document.getElementById("f");
-    var kelv = document.getElementById("k");
-    
-    switch (konvSuhu) {
+    var inpPiliSuhu = document.getElementById('inpPiliSuhu').value;
+    var inpSuhu = document.getElementById('inpSuhu').value;
+
+    switch (inpPiliSuhu) {
         case 'c':
-            ubahWarna(celc, fahr, ream, kelv);
-            celc.value = null;
-            parseFloat(ream.value = inp * (4/5));
-            parseFloat(fahr.value = inp * (9/5) + 32);
-            parseFloat(kelv.value = inp + 273.15);
+            hide(inpPiliSuhu);
+            rumus(inpPiliSuhu, inpSuhu);
+            proses(inpPiliSuhu, inpSuhu);
+
             break;
         case 'r':
-            ubahWarna(ream, fahr, celc, kelv);
-            parseFloat(celc.value = inp * 5/4);
-            ream.value = null;
-            parseFloat(fahr.value = inp * (9/4) + 32);
-            parseFloat(kelv.value = inp * 5/4 + 273);
+            hide(inpPiliSuhu);
+            rumus(inpPiliSuhu, inpSuhu);
+            proses(inpPiliSuhu, inpSuhu);
+            
             break;
         case 'f':
-            ubahWarna(fahr, ream, celc, kelv);
-            parseFloat(celc.value = (inp - 32) * 5/9);
-            parseFloat(ream.value = (inp - 32) * 4/9);
-            fahr.value = null;
-            parseFloat(kelv.value = (inp - 32) * 5/9 + 273.15);
+            hide(inpPiliSuhu);
+            rumus(inpPiliSuhu, inpSuhu);
+            proses(inpPiliSuhu, inpSuhu);
+            
             break;
-        case 'k':
-            ubahWarna(kelv, ream, celc, fahr);
-            parseFloat(celc.value = inp - 273.15);
-            parseFloat(ream.value = (inp -273) * 4 / 5 );
-            parseFloat(fahr.value = (inp - 273.15) * 9/5 + 32);
-            kelv.value = null;
+        default:
+            hide(inpPiliSuhu);
+            rumus(inpPiliSuhu, inpSuhu);
+            proses(inpPiliSuhu, inpSuhu);
+            
             break;
-    }   
+    }
 }
 
-function ubahWarna(a, b, c, d){
-    var warna1 = a.style.backgroundColor = '#f2f2f2';
-    var warna2 = b.style.backgroundColor = '#ffffff';
-    var warna3 = c.style.backgroundColor = '#ffffff';
-    var warna4 = d.style.backgroundColor = '#ffffff';
+// nyembunyiin element
+function hide(e) {
+    a = document.getElementById('outF');
+    b = document.getElementById('outR');
+    c = document.getElementById('outK');
+    d = document.getElementById('outC');
 
-    return warna1,warna2,warna3,warna4;
+    switch (e) {
+        case 'c':
+            a.style.display = 'block';
+            b.style.display = 'block';
+            c.style.display = 'block';
+            d.style.display = 'none';
+            break;
+        case 'r':
+            a.style.display = 'block';
+            b.style.display = 'none';
+            c.style.display = 'block';
+            d.style.display = 'block';
+            break;
+        case 'f':
+            a.style.display = 'none';
+            b.style.display = 'block';
+            c.style.display = 'block';
+            d.style.display = 'block';
+            break;
+        default:
+            a.style.display = 'block';
+            b.style.display = 'block';
+            c.style.display = 'none';
+            d.style.display = 'block';
+            break;
+    }
 }
 
+// keterangan rumus
+function rumus(i, a) {
+
+    b = document.getElementById('rumF');
+    c = document.getElementById('rumR');
+    d = document.getElementById('rumK');
+    e = document.getElementById('rumC');
+
+    if (a !== null && a !== '') {
+        switch (i) {
+            case 'c':
+                b.innerHTML = `32 + 9 / 5 x <strong>${a}</strong>`;
+                c.innerHTML = `4 / 5 x <strong>${a}</strong>`;
+                d.innerHTML = `(32 + 9 / 5) + <strong>${a}</strong>`;
+                break;
+            case 'r':
+                b.innerHTML = `32 + 9 / 4 x <strong>${a}</strong>`;
+                e.innerHTML = `5 / 4 x <strong>${a}</strong>`;
+                d.innerHTML = `273,15 + 5 / 4 x <strong>${a}</strong>`;
+                break;
+            case 'f':
+                e.innerHTML = `5 / 9 x (<strong>${a}</strong> - 32)`;
+                c.innerHTML = `4 / 9 x (<strong>${a}</strong> - 32)`;
+                d.innerHTML = `273,15 + 5 / 9 x (<strong>${a}</strong> - 32)`;
+                break;
+            case 'k':
+                b.innerHTML = `32 + 9 / 5 x (<strong>${a}</strong> - 273,15)`;
+                c.innerHTML = `4 / 5 x (<strong>${a}</strong> - 273,15)`;
+                e.innerHTML = `<strong>${a}</strong> - 273,15`;
+                break;
+        }
+    } else {
+        return b.innerHTML = null,
+            c.innerHTML = null,
+            d.innerHTML = null,
+            e.innerHTML = null;
+    }
+}
+
+// proses aritmatika
+function proses(i, a) {
+    b = document.getElementById('inpF');
+    c = document.getElementById('inpR');
+    d = document.getElementById('inpK');
+    e = document.getElementById('inpC');
+
+    if (a !== null && a !== '') {
+        switch (i) {
+            case 'c':
+                b.value = parseFloat(32 + 9 / 5 * a);
+                c.value = parseFloat(4 / 5 * a);
+                d.value = parseFloat(a + 273.15);
+                break;
+            case 'r':
+                b.value = parseFloat(32 + 9 / 4 * a);
+                e.value = parseFloat(5 / 4 * a);
+                d.value = parseFloat(273.15 + 5 / 4 * a);
+                break;
+            case 'f':
+                e.value = parseFloat(5 / 9 * (a - 32));
+                c.value = parseFloat(4 / 9 * (a - 32));
+                d.value = parseFloat(273.15 + 5 / 9 * (a - 32));
+                break;
+            case 'k':
+                b.value = parseFloat(32 + 9 / 5 * (a - 273.15));
+                c.value = parseFloat(4 / 5 * (a - 273.15));
+                e.value = parseFloat(a - 273.15);
+                break;
+        }
+    } else {
+        return b.value = null,
+            c.value = null,
+            d.value = null,
+            e.value = null;
+    }
+}
