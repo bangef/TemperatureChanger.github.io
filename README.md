@@ -20,5 +20,5 @@
 ![](./asset/md/img_sebelum_2.webp)
 
 #### Sesudah 
-![](./asset/md/img_sedudah_1.webp)
-![](./asset/md/img_sedudah_2.webp)
+![](./asset/md/img_hasil_1.webp)
+![](./asset/md/img_hasil_2.webp)
