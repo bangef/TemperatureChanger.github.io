@@ -4,163 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Konverter Suhu</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <title>Kalkulator Suhu</title>
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./asset/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./asset/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./asset/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./asset/favicon/site.webmanifest">
+
+    <!-- BS 5 --->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- eksternal css -->
+    <link rel="stylesheet" href="./asset/css/style.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="card text-white bg-custom border1px" style="max-width: 30rem;">
-            <div class="card-header text-center">
-                <h3 class="font-weight-bold"><span class="iconify" data-icon="fa-solid:thermometer-half" data-inline="false"></span> Konverter Suhu</h3>
-            </div>
-            <div class="row card-body text-center" style="background-color: balck;">
 
-                <div class="col-md-12 col-sm-12 my-1  width100">
-                    <div class="card bg-custom">
-                        <div class="card-header padding0 border2px">
-                            <input id="inpSuhu"
-                                class="text-dark text-center padding16 font-weight-bold font-size3 width100" type="tel">
+    <!-- start-section-->
+    <div class="vh-100 d-flex justify-content-center">
+
+        <div class="d-flex align-self-center">
+            <div class="wrapper-custom kalk-suhu">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-auto">
+                        <span class="fs-2 fw-bold text-white">🌡️ Kalkulator Suhu 🌡️</span>
+                    </div>
+                </div>
+                <hr class="bg-white" />
+                <form autocomplete="off">
+                    <div class="form-group row">
+                        <div class="col-sm-4 d-flex align-self-center">
+                            <label for="inputVal" class="fw-bold fs-4 text-white pb-2">Masukan Nilai</label>
                         </div>
-                        <!-- pilihMenu -->
-                        <div class="card-body padding0 text-center">
-                            <select onchange="konvertSuhu()" id="inpPiliSuhu" class="bg-custom width90 bordernone padding16">
-                                <option value="c">Celcius</option>
-                                <option value="r">Reamur</option>
-                                <option value="f">Fahrenheit</option>
-                                <option value="k">Kelvin</option>
+                        <div class="col-sm-4 d-flex align-self-center ">
+                            <input type="tel" class="form-control" id="inpVal" placeholder="0">
+                        </div>
+                        <div class="col-sm-4 d-flex align-self-center my-2 my-md-2 my-lg-2 my-xl-2 my-xxl-2">
+                            <select class="custom-select" id="inpSelect">
+                                <option value="test" selected disabled>Pilih</option>
+                                <!-- Select-option append here -->
+
                             </select>
-                            <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
                         </div>
                     </div>
-                </div>
+                    <div class="form-group row custom-wrapper-border hasil not-show">
+                        <div class="col-sm-12 text-center fs-4 fw-bold text-white">
+                            <span>
+                                Hasil
+                            </span>
+                        </div>
+                        <!-- append-hasil-here -->
 
-                <!-- Reamur -->
-                <div class="col-md-4 col-sm-4 my-1 avail" id="outR">
-                    <div class="card bg-custom">
-                        <div class="card-header padding0 border2px">
-                            <input readonly id="inpR"
-                                class="text-dark text-center padding16 font-weight-bold font-size3 width100" type="tel">
-                        </div>
-                        <div class="card-body padding0 text-center">
-                            <p>Reamur</p>
-                            <p><strong>Rumus</strong> : <span id="rumR"></span></p>
-                        </div>
                     </div>
-                </div>
-
-                <!-- Fahrenheit -->
-                <div class="col-md-4 col-sm-4 my-1 avail" id="outF">
-                    <div class="card bg-custom">
-                        <div class="card-header padding0 border2px">
-                            <input readonly id="inpF"
-                                class="text-dark text-center padding16 font-weight-bold font-size3 width100" type="tel">
-                        </div>
-                        <div class="card-body padding0 text-center">
-                            <p>Fahrenheit</p>
-                            <p><strong>Rumus</strong> : <span id="rumF"></span></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kelvin -->
-                <div class="col-md-4 col-sm-4 my-1 avail" id="outK" >
-                    <div class="card bg-custom">
-                        <div class="card-header padding0 border2px">
-                            <input readonly id="inpK"
-                                class="text-dark text-center padding16 font-weight-bold font-size3 width100" type="tel">
-                        </div>
-                        <div class="card-body padding0 text-center">
-                            <p>Kelvin</p>
-                            <p><strong>Rumus</strong> : <span id="rumK"></span></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Celcius -->
-                <div class="col-md-4 col-sm-4 my-1 hide" id="outC">
-                    <div class="card bg-custom">
-                        <div class="card-header padding0 border2px">
-                            <input readonly id="inpC"
-                                class="text-dark text-center padding16 font-weight-bold font-size3 width100" type="tel">
-                        </div>
-                        <div class="card-body padding0 text-center">
-                            <p>Celcius</p>
-                            <p><strong>Rumus</strong> : <span id="rumC"></span></p>
-                        </div>
+                </form>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-auto mt-2">
+                        <span class="custom-footer">© 2022 bangef</span>
                     </div>
                 </div>
             </div>
-
-            <footer class="row justify-content-center">
-                <div class="footer">
-                    made by bangef
-                </div>
-            </footer>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <div class="container" style="overflow-x:auto;">
-        <table>
-            <tr>
-                <th class="heading-table" colspan="6">
-                    Konverter Suhu
-                </th>
-            </tr>
-            <tr>
-                <th id="colomKhusus">
-                    <Select id="konvSuhu" onclick="konvertSuhu()">
-                        <option value="" selected>Pilih Suhu</option>
-                        <option value="c">C</option>
-                        <option value="r">R</option>
-                        <option value="f">F</option>
-                        <option value="k">K</option>
-                    </Select></th>
-                <th class="heading-table">Celcius</th>
-                <th class="heading-table">Reamur</th>
-                <th class="heading-table">Fahrenheit</th>
-                <th class="heading-table">Kelvin</th>
-            </tr>
-            <tr>
-                <td class="colomKhusus ">
-                    <input id="inp" type="tel" placeholder="Disini..."/>
-                </td>
-                <td class="colomKhusus">
-                    <input id="c" class="rata-tengah warna" type="tel" readonly/>
-                </td>
-                <td class="colomKhusus">
-                    <input id="r" class="rata-tengah warna" type="tel" readonly/>
-                </td>
-                <td class="colomKhusus">
-                    <input id="f" class="rata-tengah warna" type="tel" readonly/>
-                </td>
-                <td class="colomKhusus ">
-                    <input id="k" class="rata-tengah warna" type="tel" readonly/>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="6" class="footer" >
-                    made by bangef
-                </td>
-            </tr>
-        </table>
-    </div> -->
-    <script src="script.js"></script>
+    <!-- end-section -->
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script src="./asset/js/script.js"></script>
 </body>
 
 </html>
